@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<form method="post" th:fragment="add-tpc-form" th:object="${addTransformerProtectCoverBindingModel}">
+    <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-danger'">
+        <label for="desc">Description</label>
+        <textarea type="text" class="form-control" id="desc" aria-describedby="descHelp" name="description" th:field="*{description}"/>
+        <small id="descHelp" class="form-control-feedback" th:each="error : ${#fields.errors('description')}" th:text="${error}">Error Message</small>
+    </div>
+
+    <div class="form-group" th:classappend="${#fields.hasErrors('viewLink')}? 'has-danger'">
+        <label for="viewLink">View Link</label>
+        <input type="text" class="form-control" id="viewLink" aria-describedby="viewLinkHelp" name="viewLink" th:field="*{viewLink}"/>
+        <small id="viewLinkHelp" class="form-control-feedback" th:each="error : ${#fields.errors('viewLink')}" th:text="${error}">Error Message</small>
+    </div>
+
+    <div class="form-group" th:classappend="${#fields.hasErrors('downloadLink')}? 'has-danger'">
+        <label for="downloadLink">Download Link</label>
+        <input type="text" class="form-control" id="downloadLink" aria-describedby="downloadLinkHelp" name="downloadLink" th:field="*{downloadLink}"/>
+        <small id="downloadLinkHelp" class="form-control-feedback" th:each="error : ${#fields.errors('downloadLink')}" th:text="${error}">Error Message</small>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleSelect1">Choose height</label>
+            <select class="form-control" id="exampleSelect1" name="height" th:field="*{height}">
+                <option th:each="height : ${T(com.mig23catalog.entities.enums.transformerProtectCoverEnums.TransformerProtectCoverHeight).values()}"
+                        th:value="${height}"
+                        th:text="${#strings.capitalize(#strings.toLowerCase(height))}">Option 1
+                </option>
+            </select>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleSelect1">Choose Width</label>
+        <select class="form-control" id="exampleSelect2" name="width" th:field="*{width}">
+            <option th:each="width : ${T(com.mig23catalog.entities.enums.transformerProtectCoverEnums.TransformerProtectCoverWidth).values()}"
+                    th:value="${width}"
+                    th:text="${#strings.capitalize(#strings.toLowerCase(width))}">Option 1
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="exampleSelect1">Choose Depth</label>
+        <select class="form-control" id="exampleSelect3" name="depth" th:field="*{depth}">
+            <option th:each="depth : ${T(com.mig23catalog.entities.enums.transformerProtectCoverEnums.TransformerProtectiveCoverDepth).values()}"
+                    th:value="${depth}"
+                    th:text="${#strings.capitalize(#strings.toLowerCase(depth))}">Option 1
+            </option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Submit</button>
+</form>
+
+<form method="post" th:fragment="edit-tpc-form" th:object="${editTransformerProtectCoverBindingModel}">
+    <div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-danger'">
+        <label for="desc">Description</label>
+        <textarea type="text" class="form-control" id="desc" aria-describedby="descHelp" name="description" th:field="*{description}"/>
+        <small id="descHelp" class="form-control-feedback" th:each="error : ${#fields.errors('description')}" th:text="${error}">Error Message</small>
+    </div>
+
+    <div class="form-group" th:classappend="${#fields.hasErrors('viewLink')}? 'has-danger'">
+        <label for="viewLink">View Link</label>
+        <input type="text" class="form-control" id="viewLink" aria-describedby="viewLinkHelp" name="viewLink" th:field="*{viewLink}"/>
+        <small id="viewLinkHelp" class="form-control-feedback" th:each="error : ${#fields.errors('viewLink')}" th:text="${error}">Error Message</small>
+    </div>
+
+    <div class="form-group" th:classappend="${#fields.hasErrors('downloadLink')}? 'has-danger'">
+        <label for="downloadLink">Download Link</label>
+        <input type="text" class="form-control" id="downloadLink" aria-describedby="downloadLinkHelp" name="downloadLink" th:field="*{downloadLink}"/>
+        <small id="downloadLinkHelp" class="form-control-feedback" th:each="error : ${#fields.errors('downloadLink')}" th:text="${error}">Error Message</small>
+    </div>
+
+    <fieldset class="form-group" th:classappend="${#fields.hasErrors('height')}? 'has-danger'">
+        <div class="form-group">
+            <label for="exampleSelect1">Choose Hight</label>
+            <select class="form-control" id="exampleSelect4" name="height" th:field="*{height}">
+                <option th:each="height : ${T(com.mig23catalog.entities.enums.transformerProtectCoverEnums.TransformerProtectCoverHeight).values()}"
+                        th:value="${height}" th:text="${#strings.capitalize(#strings.toLowerCase(height))}">Option 1</option>
+            </select>
+        </div>
+        <small id="toHelpHeight" class="form-control-feedback" th:each="error : ${#fields.errors('height')}" th:text="${error}">Error Message</small>
+        <div class="form-group">
+            <label for="exampleSelect1">Choose Width</label>
+            <select class="form-control" id="exampleSelect5" name="magnitude" th:field="*{width}">
+                <option th:each="width : ${T(com.mig23catalog.entities.enums.transformerProtectCoverEnums.TransformerProtectCoverWidth).values()}"
+                        th:value="${width}" th:text="${#strings.capitalize(#strings.toLowerCase(width))}">Option 1</option>
+            </select>
+        </div>
+        <small id="toHelpWidth" class="form-control-feedback" th:each="error : ${#fields.errors('width')}" th:text="${error}">Error Message</small>
+        <div class="form-group">
+            <label for="exampleSelect1">Choose Depth</label>
+            <select class="form-control" id="exampleSelect6" name="magnitude" th:field="*{depth}">
+                <option th:each="depth : ${T(com.mig23catalog.entities.enums.transformerProtectCoverEnums.TransformerProtectiveCoverDepth).values()}"
+                        th:value="${depth}" th:text="${#strings.capitalize(#strings.toLowerCase(depth))}">Option 1</option>
+            </select>
+        </div>
+        <small id="toHelpDepth" class="form-control-feedback" th:each="error : ${#fields.errors('depth')}" th:text="${error}">Error Message</small>
+    </fieldset>
+
+    <button type="submit" class="btn btn-secondary">Edit</button>
+</form>
+
+</body>
+</html>
