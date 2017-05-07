@@ -20,6 +20,9 @@ public class EditTransformerProtectCoverBindingModel {
     @Pattern(regexp = "^https:\\/\\/drive\\.google\\.com\\/open\\/?(.*)", message = "Invalid view link!")
     private String viewLink;
 
+    @NotNull
+    private byte[] stlFile;
+
     @NotNull(message = "Height cannot be null!")
     private String height;
 
@@ -59,6 +62,14 @@ public class EditTransformerProtectCoverBindingModel {
 
     public void setViewLink(String viewLink) {
         this.viewLink = viewLink;
+    }
+
+    public byte[] getStlFile() {
+        return stlFile;
+    }
+
+    public void setStlFile(byte[] stlFile) {
+        this.stlFile = stlFile;
     }
 
     public String getHeight() {

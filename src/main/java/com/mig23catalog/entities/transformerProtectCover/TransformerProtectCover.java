@@ -22,6 +22,9 @@ public class TransformerProtectCover {
     @Column(name = "view_link")
     private String viewLink;
 
+    @Column(name = "stl_file")
+    private byte[] stlFile;
+
     @Enumerated (EnumType.STRING)
     private TransformerProtectCoverHeight height;
 
@@ -64,6 +67,14 @@ public class TransformerProtectCover {
 
     public void setViewLink(String viewLink) {
         this.viewLink = viewLink;
+    }
+
+    public byte[] getStlFile() {
+        return stlFile;
+    }
+
+    public void setStlFile(byte[] stlFile) {
+        this.stlFile = stlFile;
     }
 
     public TransformerProtectCoverHeight getHeight() {

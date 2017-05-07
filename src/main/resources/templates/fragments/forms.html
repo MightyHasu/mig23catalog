@@ -21,6 +21,12 @@
         <small id="downloadLinkHelp" class="form-control-feedback" th:each="error : ${#fields.errors('downloadLink')}" th:text="${error}">Error Message</small>
     </div>
 
+    <div class="form-group" th:classappend="${#fields.hasErrors('stlFile')}? 'has-danger'">
+        <label for="downloadLink">Add *.stl File</label>
+        <<input type="file" name="stlFile" id="stlFile" th:field="*{stlFile}"/>
+        <small id="stlFileHelp" class="form-control-feedback" th:each="error : ${#fields.errors('stlFile')}" th:text="${error}">Error Message</small>
+    </div>
+
     <div class="form-group">
         <label for="exampleSelect1">Choose height</label>
             <select class="form-control" id="exampleSelect1" name="height" th:field="*{height}">

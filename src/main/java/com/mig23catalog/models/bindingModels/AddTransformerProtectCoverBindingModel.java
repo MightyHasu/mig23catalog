@@ -1,6 +1,8 @@
 package com.mig23catalog.models.bindingModels;
 
 
+import org.springframework.stereotype.Service;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -14,6 +16,9 @@ public class AddTransformerProtectCoverBindingModel {
     @NotNull
     @Pattern(regexp = "^https:\\/\\/drive\\.google\\.com\\/open\\/?(.*)", message = "Invalid download link!")
     private String downloadLink;
+
+    @NotNull
+    private byte[] stlFile;
 
     @NotNull
     @Pattern(regexp = "^https:\\/\\/drive\\.google\\.com\\/open\\/?(.*)", message = "Invalid view link!")
@@ -50,6 +55,14 @@ public class AddTransformerProtectCoverBindingModel {
 
     public void setViewLink(String viewLink) {
         this.viewLink = viewLink;
+    }
+
+    public byte[] getStlFile() {
+        return stlFile;
+    }
+
+    public void setStlFile(byte[] stlFile) {
+        this.stlFile = stlFile;
     }
 
     public String getHeight() {

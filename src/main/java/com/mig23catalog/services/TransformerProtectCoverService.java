@@ -16,4 +16,6 @@ public interface TransformerProtectCoverService {
     EditTransformerProtectCoverBindingModel findTransformerProtectCoverById(long id);
 
     void deleteById(long id);
+
+    TransformerProtectCoverViewModel findById(long id);
 }

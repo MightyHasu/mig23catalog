@@ -3,6 +3,7 @@ package com.mig23catalog.controllers;
 import com.mig23catalog.entities.enums.transformerProtectCoverEnums.TransformerProtectCoverHeight;
 import com.mig23catalog.entities.enums.transformerProtectCoverEnums.TransformerProtectCoverWidth;
 import com.mig23catalog.entities.enums.transformerProtectCoverEnums.TransformerProtectiveCoverDepth;
+import com.mig23catalog.entities.transformerProtectCover.TransformerProtectCover;
 import com.mig23catalog.models.bindingModels.AddTransformerProtectCoverBindingModel;
 import com.mig23catalog.models.bindingModels.EditTransformerProtectCoverBindingModel;
 import com.mig23catalog.models.viewModels.TransformerProtectCoverViewModel;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -84,4 +86,29 @@ public class TransformerProtectCoverController {
         this.transformerProtectCoverService.deleteById(tpcId);
         return "redirect:/transformer-protect-covers";
     }
+
+    @GetMapping("/preview/{tpcId}")
+    public String viewTransformerProtectCover(@PathVariable long tpcId, Model model) {
+        TransformerProtectCoverViewModel tpcViewModel = this.transformerProtectCoverService.findById(tpcId);
+        String viewLink = tpcViewModel.getViewLink();
+        model.addAttribute("viewLink", viewLink);
+        return "webgl";
+    }
+
+    //@PostMapping("/add")
+    //public String handleFileUpload(@RequestParam CommonsMultipartFile[] fileUpload) throws Exception {
+    //    if (fileUpload != null && fileUpload.length > 0) {
+    //        for (CommonsMultipartFile aFile : fileUpload){
+    //            System.out.println("Saving file: " + aFile.getOriginalFilename());
+    //
+    //
+    //            UploadFile uploadFile = new UploadFile();
+    //            uploadFile.setFileName(aFile.getOriginalFilename());
+    //            uploadFile.setData(aFile.getBytes());
+    //            fileUploadDao.save(uploadFile);
+    //        }
+    //    }
+//
+    //    return "Success";
+    //}
 }

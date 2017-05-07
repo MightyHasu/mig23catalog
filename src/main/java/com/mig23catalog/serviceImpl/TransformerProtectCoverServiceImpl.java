@@ -59,4 +59,9 @@ public class TransformerProtectCoverServiceImpl implements TransformerProtectCov
     public void deleteById(long id) {
         this.transformerProtectCoverRepository.delete(id);
     }
+
+    @Override
+    public TransformerProtectCoverViewModel findById(long id) {
+        return this.mapper.map(this.transformerProtectCoverRepository.findById(id), TransformerProtectCoverViewModel.class);
+    }
 }
